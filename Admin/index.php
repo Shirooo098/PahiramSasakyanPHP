@@ -11,6 +11,7 @@
         <input type="text" name="model">
         <input type="number" name="quantity">
         <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png"  value=""required>
+        <input type="number" name="price">
         <textarea name="description" id="" autocapitalize="on" autocomplete="off"></textarea>
         <button type="submit"name="submit">Submit</button>
     </form>

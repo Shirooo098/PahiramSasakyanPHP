@@ -7,6 +7,7 @@
         $model = $_POST["model"];
         $quantity = $_POST["quantity"];
         $description = $_POST["description"];
+        $price = $_POST["price"];
 
         if($_FILES["image"]["error"] === 4){
             echo "<script>alert('Image does not exist')</script>";
@@ -28,11 +29,17 @@
                 $newImageName = uniqid() . '.' . $imageExtension;
                 move_uploaded_file($tmpName, '../Images/' . $newImageName);
 
-                $query = "INSERT INTO carstbl VALUES ('','$brand', '$model', '$quantity', '$newImageName', '$description') ";
-                mysqli_query($conn, $query);
-                echo "<script>alert('Successfully Added');
-                    window.location.href = '../index.php';
-                </script>";
+                $stmt = $conn->prepare("INSERT INTO carstbl (brand, mode, quantity, price, image, description) VALUES (?, ?, ?, ?, ?, ?) ");
+                $stmt->bind_param($brand, $model, $quantity, $price, $image, $description);
+                if($stmt->execute()){
+                    echo "<script>alert('Successfully Added');
+                        window.location.href = '../index.php';
+                    </script>";
+                }else{
+                    echo "<script>alert('Failed adding data')</script>";
+                }
+
+                $stmt->close();
             }
         }
     }
