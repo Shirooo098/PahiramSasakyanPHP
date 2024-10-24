@@ -29,8 +29,8 @@
                 $newImageName = uniqid() . '.' . $imageExtension;
                 move_uploaded_file($tmpName, '../Images/' . $newImageName);
 
-                $stmt = $conn->prepare("INSERT INTO carstbl (brand, mode, quantity, price, image, description) VALUES (?, ?, ?, ?, ?, ?) ");
-                $stmt->bind_param($brand, $model, $quantity, $price, $image, $description);
+                $stmt = $conn->prepare("INSERT INTO carstbl (brand, model, quantity, image, description, price) VALUES (?, ?, ?, ?, ?, ?) ");
+                $stmt->bind_param("ssissd",$brand, $model, $quantity, $newImageName, $description, $price);
                 if($stmt->execute()){
                     echo "<script>alert('Successfully Added');
                         window.location.href = '../index.php';

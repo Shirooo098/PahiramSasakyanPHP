@@ -20,7 +20,7 @@
         </tr>
         <?php
             $i = 1;
-            $rows = mysqli_query($conn, "SELECT * FROM carstbl order BY carID desc");
+            $rows = mysqli_query($conn, "SELECT * FROM carstbl order BY carID ASC");
             
             foreach($rows as $row) : 
         ?>
