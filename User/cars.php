@@ -1,5 +1,6 @@
 <?php
     require "../Admin/action/conn.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -19,18 +20,18 @@
             <td>Description</td>
         </tr>
         <?php
-            $i = 1;
             $rows = mysqli_query($conn, "SELECT * FROM carstbl order BY carID ASC");
             
             foreach($rows as $row) : 
         ?>
         <tr>
-                <td><?php echo $i++; ?></td>
+                <td><?php echo $row["carId"]; ?></td>
                 <td><?php echo $row["model"]; ?></td>
                 <td><?php echo $row["brand"]; ?></td>
                 <td><?php echo $row["quantity"]; ?></td>
                 <td><img src="../Admin/Images/<?php echo $row["image"]; ?>" alt=""></td>
                 <td><?php echo $row["description"]; ?></td>
+                <td><button><a href="rent.php?carID=<?php echo $row["carId"]?>">Rent</a></button></td>
         </tr>
         <?php endforeach; ?>
     </table>
