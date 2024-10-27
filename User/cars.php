@@ -1,6 +1,8 @@
 <?php
     require "../Admin/action/conn.php";
 
+    session_start();
+    echo $_SESSION['userId'];
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +13,8 @@
     <title>Document</title>
 </head>
 <body>
+    <a href="action/logout.php">Logout</a>
+
     <table>
         <tr>
             <td>ID</td>

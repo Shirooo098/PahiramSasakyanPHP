@@ -1,3 +1,10 @@
+<?php
+
+    session_start();
+    echo $_SESSION['userId'];
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +16,7 @@
     <h1>Home</h1>
     <ul>
         <li><a href="cars.php">Rent</a></li>
+        <li><a href="action/logout.php">Logout</a></li>
     </ul>
 </body>
 </html>

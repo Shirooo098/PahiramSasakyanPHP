@@ -1,7 +1,5 @@
 <?php
     require 'action/rent_action.php';
-
-    session_start();
 ?>
 
 
@@ -13,6 +11,7 @@
     <title>Document</title>
 </head>
 <body>
+    <a href="action/logout.php">Logout</a>
     <h1>Rent</h1>
     <form action="" method="POST" autocomplete="off">
         <input type="text" placeholder="First Name">

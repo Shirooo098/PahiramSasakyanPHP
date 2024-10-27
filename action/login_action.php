@@ -1,6 +1,8 @@
 <?php
     require '../Admin/action/conn.php';
 
+    session_start();
+
     if(isset($_POST["login"])){
         $email = $_POST["email"];
         $password = $_POST["password"];
@@ -15,7 +17,7 @@
                 $_SESSION['email'] = $row['email'];
                 $_SESSION['userId'] = $row['userId'];
                 $_SESSION['username'] = $row['username'];
-
+                
                 if($row["role"] == "user"){
                     header("Location: ../User/index.php");
                     exit();
