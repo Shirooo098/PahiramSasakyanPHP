@@ -2,7 +2,7 @@
     require "../Admin/action/conn.php";
 
     session_start();
-    echo $_SESSION['userId'];
+    
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +24,7 @@
             <td>Description</td>
         </tr>
         <?php
-            $rows = mysqli_query($conn, "SELECT * FROM carstbl order BY carID ASC");
+            $rows = mysqli_query($conn, "SELECT * FROM carstbl order BY carId ASC");
             
             foreach($rows as $row) : 
         ?>
@@ -35,7 +35,7 @@
                 <td><?php echo $row["quantity"]; ?></td>
                 <td><img src="../Admin/Images/<?php echo $row["image"]; ?>" alt=""></td>
                 <td><?php echo $row["description"]; ?></td>
-                <td><button><a href="rent.php?carID=<?php echo $row["carId"]?>">Rent</a></button></td>
+                <td><button><a href="rent.php?carId=<?php echo $row["carId"]?>">Rent</a></button></td>
         </tr>
         <?php endforeach; ?>
     </table>

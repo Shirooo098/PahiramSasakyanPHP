@@ -1,7 +1,6 @@
 <?php
 
     session_start();
-    echo $_SESSION['userId'];
 ?>
 
 
@@ -16,7 +15,11 @@
     <h1>Home</h1>
     <ul>
         <li><a href="cars.php">Rent</a></li>
-        <li><a href="action/logout.php">Logout</a></li>
+        <?php if(isset($_SESSION['username'])){?>
+        <li><a href="profile.php"><?=$_SESSION['username']?></a></li>
+        <?php }else{  ?>
+            <li><a href="../login.php">Login</a></li>
+        <?php }?>
     </ul>
 </body>
 </html>

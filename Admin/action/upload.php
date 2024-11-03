@@ -8,6 +8,7 @@
         $quantity = $_POST["quantity"];
         $description = $_POST["description"];
         $price = $_POST["price"];
+        formIsEmpty($brand, $model, $quantity, $description, $price);
 
         if($_FILES["image"]["error"] === 4){
             echo "<script>alert('Image does not exist')</script>";
@@ -41,6 +42,14 @@
 
                 $stmt->close();
             }
+        }
+    }
+
+    function formIsEmpty($brand, $model, $quantity, $description, $price){
+        if(!$brand || !$model || !$quantity || !$description || !$price){
+            echo "<script>alert('Please fill up all fields')
+            window.location.href = '../index.php'
+            </script>";
         }
     }
 ?>
