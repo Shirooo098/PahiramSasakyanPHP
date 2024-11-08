@@ -42,3 +42,35 @@ function formIsEmpty(){
         return false;
     }
 }
+
+function calculateTotalPrice(){
+    const PICKUPDATE = new Date(document.getElementById("pickUpDate").value);
+    const RETURNDATE = new Date(document.getElementById("returnDate").value);
+
+    if(isNaN(PICKUPDATE) || isNaN(RETURNDATE) || RETURNDATE < PICKUPDATE){
+        console.log("Select Valdi Dates");
+        return;
+    }
+
+    const DIFFTIME = Math.abs(PICKUPDATE - RETURNDATE);
+    const DIFFDAYS = Math.floor(DIFFTIME / (1000 * 3600 * 24));
+
+    const PRICEPERDAY = parseInt(document.querySelector(".pricePerDay").innerHTML); 
+    const TOTALPRICE = DIFFDAYS * PRICEPERDAY;
+
+    document.querySelector(".price").innerHTML = TOTALPRICE;
+    document.getElementById("totalRentPrice").value = TOTALPRICE;
+
+    console.log(TOTALPRICE)
+    console.log(PRICEPERDAY)
+}
+
+
+function validateConfirmPassword(){
+    let conPass = document.getElementById('conPass').value;
+    let pass = document.getElementById('pass').value;
+
+    if(conPass != pass){
+        alert('Mismatch Password');
+    }
+}

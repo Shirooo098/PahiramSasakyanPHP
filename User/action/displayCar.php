@@ -14,7 +14,6 @@
 
         $carData = mysqli_fetch_assoc($result);
 
-        
     }else{
         echo "<script>alert('No Car Found Error')
             window.location.href = 'cars.php'
@@ -28,5 +27,4 @@
             </script>";
         }
     }
-
 ?>

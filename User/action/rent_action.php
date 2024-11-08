@@ -2,7 +2,6 @@
 
     require '../../Admin/action/conn.php';
 
-
     if(isset($_POST['submit'])){
         $userId = $_POST['userId'];
         $carId = $_POST['carId'];
@@ -34,6 +33,5 @@
         }else{
             echo "<script>alert('Failed adding data')</script>";
         }
-
     }
 ?>

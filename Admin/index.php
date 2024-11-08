@@ -1,3 +1,8 @@
+<?php
+
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +11,7 @@
     <title>Document</title>
 </head>
 <body>
+    <a href="rentRequest.php">Rent Approval</a>
     <form action="action/upload.php" method="POST" autocomplete="off" enctype="multipart/form-data">
         <input type="text" name="brand">
         <input type="text" name="model">
