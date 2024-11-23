@@ -37,7 +37,9 @@
                         window.location.href = '../index.php';
                     </script>";
                 }else{
-                    echo "<script>alert('Failed adding data')</script>";
+                    echo "<script>alert('Failed adding data')
+                        window.location.href = '../index.php';
+                    </script>";
                 }
 
                 $stmt->close();

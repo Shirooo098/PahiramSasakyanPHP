@@ -12,6 +12,9 @@
 </head>
 <body>
     <a href="rentRequest.php">Rent Approval</a>
+    <a href="addAdmin.php">Create Admin</a>
+    <a href="adminAccount.php">Admin Accounts</a>
+    <a href="../User/action/logout.php">Logout</a>
     <form action="action/upload.php" method="POST" autocomplete="off" enctype="multipart/form-data">
         <input type="text" name="brand">
         <input type="text" name="model">
