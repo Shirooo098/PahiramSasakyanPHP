@@ -8,15 +8,7 @@
     --componentColor: #FFFAFA;
     --darkBlue: #102A43;
 }
-body{
-    display: flex;
-    padding: 2rem;
-    width: 100svw;
-    height: 100%;
-    gap: 3rem;
-    background-color: var(--bgColor);
-    overflow-x: hidden;
-}
+
 aside{
     width: 15%;
     height: 20vh;
