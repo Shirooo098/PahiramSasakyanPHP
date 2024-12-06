@@ -1,0 +1,55 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 80%;
+    height: auto;
+}
+article{
+    width: 100%;
+    padding: 2em 1em;
+    background-color: var(--componentColor);
+    border-radius: 10px;
+    box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+thead tr{
+    width: 100%;
+}
+
+thead th{
+    font-size: 1.5rem;
+    padding: 1rem;
+    background-color: #102A43;
+    color: var(--componentColor);
+}
+
+tr:nth-child(even){
+    background-color: #BCCCDC;
+}
+
+tr th{
+    text-align: center;
+    font-size: 1.25rem;
+}
+
+tbody tr{
+    height: 5svh;
+    width: 5svw;
+    padding: 2rem;
+}
+
+td{
+    text-align: center;
+}

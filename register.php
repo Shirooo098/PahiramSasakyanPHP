@@ -18,6 +18,7 @@
         <input type="password" name="confirmPassword" >
         <button name="submit">Register</button>
     </form>
+    <a href="login.php">Login</a>
 </body>
 
 </html>

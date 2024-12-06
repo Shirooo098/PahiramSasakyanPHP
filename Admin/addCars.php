@@ -1,9 +1,6 @@
 <?php
-    require "action/conn.php";
 
     session_start();
-
-    
 ?>
 
 <!DOCTYPE html>
@@ -11,8 +8,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/index.css">
     <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/form.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Document</title>
 </head>
@@ -48,40 +46,43 @@
             </ul>
         </nav>
     </aside>
-
     <main>
-        <h3>Cars</h3>
+        <h3>Add Cars</h3>
         <article>
-            <table>
-                <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Model</th>
-                        <th scope="col">Brand</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Car</th>
-                        <th scope="col">Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <?php
-                    $rows = mysqli_query($conn, "SELECT * FROM carstbl order BY carId ASC");
-                    
-                    foreach($rows as $row) : 
-                ?>
-                    <tr>
-                        <th scope="row"><?php echo $row["carId"]; ?></th>
-                        <td><?php echo $row["model"]; ?></td>
-                        <td><?php echo $row["brand"]; ?></td>
-                        <td><?php echo $row["quantity"]; ?></td>
-                        <td><div class="img-container"><img src="Images/<?php echo $row["image"]; ?>" alt=""></div></td>
-                        <td><?php echo $row["description"]; ?></td>
-                    </tr>
-                <?php endforeach; ?>
-                </tbody>
-            </table>
+            <div class="form-wrapper">
+                <form action="action/upload.php" method="POST" autocomplete="off" enctype="multipart/form-data">
+                <div class="brandModel-container">
+                    <div class="brand-container">
+                        <label for="">Brand: </label>
+                        <input type="text" name="brand">
+                    </div>    
+                    <div class="model-container">
+                        <label for="">Model: </label>
+                        <input type="text" name="model">
+                    </div>
+                </div>
+                <div class="quantityPrice-container">
+                    <div class="quantity-container">
+                        <label for="">Quantity: </label>
+                        <input type="number" name="quantity">
+                    </div>
+                    <div class="price-container">
+                        <label for="">Price: </label>
+                        <input type="number" name="price">
+                    </div>
+                </div>
+                <div class="description-container">
+                    <label for="">Description</label>
+                    <textarea class="desc-textBox"name="description" autocapitalize="on" autocomplete="off"></textarea>
+                </div>
+                <label for="">Image: </label>
+                <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png"  value="" required>
+                <div class="btn-container">
+                    <button type="submit"name="submit">Submit</button>
+                </div>
+            </div>
+        </form>
         </article>
     </main>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </html>

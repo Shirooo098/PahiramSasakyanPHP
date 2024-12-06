@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --bgColor: #F0F4F8;
+    --componentColor: #FFFAFA;
+    --darkBlue: #102A43;
+}
+body{
+    display: flex;
+    padding: 2rem;
+    width: 100svw;
+    height: 100%;
+    gap: 3rem;
+    background-color: var(--bgColor);
+    overflow-x: hidden;
+}
+aside{
+    width: 15%;
+    height: 20vh;
+}
+nav{
+    background-color: var(--componentColor);
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 4px rgba(0, 0, 0, 0.1);
+}
+
+header, .profile{
+    padding: 1em 0;
+    border-bottom: 1px solid #102A43;
+}
+
+.profile{
+    text-align: center;
+}
+
+header h1{
+    font-size: 1.5rem;
+}
+
+
+.list-container, .profile-container {
+    padding: 0;
+}
+
+.dropdown-icon{
+    height: 10px;
+
+}
+
+nav ul li{
+    list-style: none;
+}
+nav ul li a{
+    text-decoration: none;
+    color: var(--darkBlue);
+}

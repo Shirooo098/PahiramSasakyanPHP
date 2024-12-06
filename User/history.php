@@ -26,7 +26,7 @@
             <td>Status</td>
         </tr>
         <?php
-            $rows = mysqli_query($conn, "SELECT pickUpDate, pickUpTime, pickUpLocation, returnDate, returnTime, returnLocation, price, status FROM renttbl WHERE userId = $userId order BY rentId ");
+            $rows = mysqli_query($conn, "SELECT * FROM renttbl WHERE userId = $userId");
 
             foreach($rows as $row) : 
         ?>

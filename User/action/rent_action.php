@@ -27,9 +27,14 @@
         $pickUpDate, $pickUpTime, $pickUpLocation, $returnDate, $returnTime, $returnLocation, $price);
 
         if($stmt->execute()){
+            $updateStmt = $conn->prepare("UPDATE carstbl SET quantity = quantity -1 WHERE carId = ? ");
+            $updateStmt->bind_param("i", $carId);
+
+           if($updateStmt->execute()){
             echo "<script>alert('Form submitted successfully')
                 window.location.href = '../index.php';
             </script>";
+           }
         }else{
             echo "<script>alert('Failed adding data')</script>";
         }

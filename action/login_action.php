@@ -6,8 +6,8 @@
         $email = $_POST["email"];
         $password = $_POST["password"];
 
-        $query = $conn->prepare("SELECT * FROM usertbl where email = ?");
-        $query->bind_param("s", $email);
+        $query = $conn->prepare("SELECT * FROM usertbl where email = ? AND password = ?");
+        $query->bind_param("ss", $email, $password);
         $query->execute();
         $result = $query->get_result();
 

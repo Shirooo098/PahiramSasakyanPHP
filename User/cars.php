@@ -24,7 +24,7 @@
             <td>Description</td>
         </tr>
         <?php
-            $rows = mysqli_query($conn, "SELECT * FROM carstbl order BY carId ASC");
+            $rows = mysqli_query($conn, "SELECT * FROM carstbl WHERE quantity > 0 order BY carId ASC");
             
             foreach($rows as $row) : 
         ?>
